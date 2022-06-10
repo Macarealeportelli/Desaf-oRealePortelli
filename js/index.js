@@ -60,4 +60,3 @@ const confirmarCompra=(product, type, size)=>{
     }
 }
 
-iniciarCompra()
