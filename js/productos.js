@@ -17,12 +17,6 @@ function listarProductos() {
     console.table(productos)
 } 
 
-// function listarProductos() {
-//     productos.forEach((producto)=>{
-//         console.table(producto)
-//     })
-// }
-
 function agregarProducto() {
     debugger
     let id = creoID()
@@ -40,11 +34,36 @@ function iterarArray() {
 
 function buscarProducto(){
     let aBuscar = prompt("Ingrese el nombre del producto a buscar")
-    let resultado = productos.find((producto)=> producto.nombre.includes(aBuscar))
+    let resultado = ''
     console.clear()
-    console.table(resultado)
+    if (aBuscar === aBuscar.toUpperCase()) {
+        resultado = productos.find((producto)=> producto.nombre.includes(aBuscar))
+        console.table(resultado)
+        return resultado
+    } else {
+        console.log(aBuscar)
+        let newABuscar= aBuscar.toUpperCase()
+        resultado = productos.filter((producto) => producto.nombre.includes(newABuscar))
+        console.table(resultado)
+        return resultado
+    }
 }
 
+const filtrarProductos = () => {
+    let filtrar = prompt("Ingrese el producto a filtrar")
+    let resultado = ''
+    if (filtrar === filtrar.toUpperCase()) {
+        resultado = productos.filter((producto) => producto.nombre.includes(filtrar))
+        // console.table(resultado)
+        return resultado
+    } else {
+        // console.log(filtrar)
+        let newFiltrar = filtrar.toUpperCase()
+        resultado = productos.filter((producto) => producto.nombre.includes(newFiltrar))
+        // console.table(resultado)
+        return resultado
+    }
+}
 
 function creoID() {
     return parseInt(Math.random() * 10000)
@@ -87,3 +106,10 @@ const calcularCarrito = () => {
       
     return console.log("Precio Final de Cada Producto: " + carritoPrecioFinal, "Total del Carrito:" + suma)
 }
+
+//funcion que agregará productos al carrito
+// const agregarACarrito = () => {
+//    let nuevoProducto = buscarProducto()
+//    carrito.push(nuevoProducto)
+//    return console.table(carrito) 
+// }
