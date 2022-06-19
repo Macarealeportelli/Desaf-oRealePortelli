@@ -1,5 +1,6 @@
 import { productos } from "./stock.js"
 import { agregarACarrito } from "./carrito.js"
+import { filtrarProductos, buscarProducto } from "./index.js"
 
 const mostrarProductos = (productos) => {
     const contenedorProdcuctos = document.getElementById('product-container')
@@ -7,7 +8,7 @@ const mostrarProductos = (productos) => {
     productos.forEach( producto => {
         const div = document.createElement('div')
         div.innerHTML += ` 
-            <div class="card" style="width: 18rem;">
+            <div class="card" >
                 <img src=${producto.img} class="card-img-top" alt="...">
                 <div class="card-body">
                     <h4 class="mt-3 card-title">${producto.name}</h4>
@@ -29,3 +30,13 @@ const mostrarProductos = (productos) => {
 }
 
 mostrarProductos(productos)
+
+const botonFiltrar = document.getElementById('filtrar-productos')
+botonFiltrar.addEventListener('click', () => {
+    filtrarProductos(productos)
+})
+
+const botonBuscar = document.getElementById('buscar-productos')
+botonBuscar.addEventListener('click', () => {
+    buscarProducto(productos)
+})

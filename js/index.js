@@ -1,3 +1,5 @@
+import {productos} from './stock.js'
+
 let cuadernoType = ['liso', 'rayado', 'punteado', 'cuadriculado']
 let size = ['A6', 'A5', 'A4']
 let agendaType = ['Semana a la vista', 'Dos días por hoja', 'Día por hoja']
@@ -60,7 +62,6 @@ const confirmarCompra=(product, type, size)=>{
     }
 }
 
-let productos = []
 let carrito = []
 let IVA = 1.21
 
@@ -75,11 +76,11 @@ class Producto {
     }
 }
 
-function listarProductos() {
+const listarProductos = (productos) => {
     console.table(productos)
 } 
 
-function agregarProducto() {
+const agregarProducto = () => {
     debugger
     let id = creoID()
     let nombre = prompt("Ingresa el nombre del producto:")
@@ -94,18 +95,18 @@ function iterarArray() {
     }
 }
 
-function buscarProducto(){
+const buscarProducto = ()=>{
     let aBuscar = prompt("Ingrese el nombre del producto a buscar")
     let resultado = ''
     console.clear()
     if (aBuscar === aBuscar.toUpperCase()) {
-        resultado = productos.find((producto)=> producto.nombre.includes(aBuscar))
+        resultado = productos.find((producto)=> producto.name.includes(aBuscar))
         console.table(resultado)
         return resultado
     } else {
         console.log(aBuscar)
         let newABuscar= aBuscar.toUpperCase()
-        resultado = productos.filter((producto) => producto.nombre.includes(newABuscar))
+        resultado = productos.filter((producto) => producto.name.includes(newABuscar))
         console.table(resultado)
         return resultado
     }
@@ -115,14 +116,14 @@ const filtrarProductos = () => {
     let filtrar = prompt("Ingrese el producto a filtrar")
     let resultado = ''
     if (filtrar === filtrar.toUpperCase()) {
-        resultado = productos.filter((producto) => producto.nombre.includes(filtrar))
-        // console.table(resultado)
+        resultado = productos.filter((producto) => producto.name.includes(filtrar))
+        console.table(resultado)
         return resultado
     } else {
         // console.log(filtrar)
         let newFiltrar = filtrar.toUpperCase()
-        resultado = productos.filter((producto) => producto.nombre.includes(newFiltrar))
-        // console.table(resultado)
+        resultado = productos.filter((producto) => producto.name.includes(newFiltrar))
+        console.table(resultado)
         return resultado
     }
 }
@@ -132,7 +133,7 @@ function creoID() {
 }
 
 
-generadorAutomatico()
+// generadorAutomatico()
 //FUNCION QUE SE USA PARA LLENAR AUTOMÁTICAMENTE EL ARRAY DE OBJETOS A USAR
 function generadorAutomatico() {
     productos.push(new Producto(1234, "CUADERNO FLOWERS", 600))
@@ -175,3 +176,5 @@ const calcularCarrito = () => {
 //    carrito.push(nuevoProducto)
 //    return console.table(carrito) 
 // }
+
+export {filtrarProductos, buscarProducto}
