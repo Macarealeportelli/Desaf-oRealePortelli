@@ -1,62 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/index.js"></script>
-    <script src="js/productos.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://kit.fontawesome.com/f580711539.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>CAHIER - Tienda</title>
-</head>
-<body>
-    <article class="container">
-        <h1>Array de Objetos</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>DESCRIPCION</th>
-                    <th>IMPORTE</th>
-                    <th>FINAL</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1234</td>
-                    <td>DESCRIPCION DE MI PRODUCTO</td>
-                    <td>1000.00</td>
-                    <td>1210.00</td>
-                </tr>
-                <tr>
-                    <td>1234</td>
-                    <td>DESCRIPCION DE MI PRODUCTO</td>
-                    <td>1000.00</td>
-                    <td>1210.00</td>
-                </tr>
-                <tr>
-                    <td>1234</td>
-                    <td>DESCRIPCION DE MI PRODUCTO</td>
-                    <td>1000.00</td>
-                    <td>1210.00</td>
-                </tr>
-                <tr>
-                    <td>1234</td>
-                    <td>DESCRIPCION DE MI PRODUCTO</td>
-                    <td>1000.00</td>
-                    <td>1210.00</td>
-                </tr>
-            </tbody>
-        </table>
-        <footer>
-            <button role="button" class="contrast" onclick="iniciarCompra()">INICIAR COMPRA</button>
-            <button role="button" class="primary" onclick="listarProductos()">LISTAR PRODUCTOS</button>
-            <button role="button" class="secondary" onclick="buscarProducto()">BUSCAR PRODUCTO</button>
-            <button role="button" class="secondary" onclick="filtrarProductos()">FILTRAR PRODUCTOS</button>
-            <button role="button" class="contrast" onclick="calcularCarrito()">CALCULAR CARRITO</button>
-            <button role="button" class="contrast" onclick="agregarACarrito()">AGREGAR A CARRITO</button>
-        </footer>
-    </article>
+  </head>
+  <body>
+    <header>
+      <div class="titulo">
+        <h1>Productos</h1>
+    </div>
+    <nav class="justify-content-end">
+          <ul class="nav-container">
+              <li class="nav-item">
+                  <a class="nav-link active text-body" aria-current="page" href="#">Sobre Nosotros</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-body" href="#">Ofertas</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-body" href="#">Contacto</a>
+              </li>
+              <li class="nav-item ">
+                  <button button type="button" class="btn-carrito" data-bs-toggle="modal" data-bs-target="#staticBackdrop">CARRITO <i class="fa-solid fa-cart-shopping"></i> <span id="contador-carrito">0</span> </a>
+              </li>
+          </ul>
+      </nav>
+    </header>
+    <section id="product-container">
+      
+    </section>
+            <footer>
+              <button type="button" class="btn btn-contrast" onclick="iniciarCompra()">
+                INICIAR COMPRA
+              </button>
+              <button type="button" class="btn btn-primary" onclick="mostrarProductos()">
+                LISTAR PRODUCTOS
+              </button>
+              <!-- <button role="button" class="secondary" onclick="buscarProducto()">
+                BUSCAR PRODUCTO
+              </button> -->
+              <button type="button" class="btn btn-secondary" onclick="filtrarProductos()">
+                FILTRAR PRODUCTOS
+              </button>
+              <button type="button" class="btn btn-contrast" onclick="calcularCarrito()">
+                CALCULAR CARRITO
+              </button>
+              <button type="button" class="btn btn-contrast" onclick="agregarACarrito()">
+                AGREGAR A CARRITO
+              </button>
+            </footer>
+    </section>
+   
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Carrito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="carrito" class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="calcularCarrito()">Calcular Carrito</button>
+      </div>
+    </div>
+  </div>
+    <!-- <script src="js/index.js" type="module"></script> -->
+    <script src="js/app.js" type="module"></script>
+    <script src="js/stock.js" type="module"></script>
+    <!-- <script src="js/modal.js" type="module"></script> -->
+    <script src="js/carrito.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
