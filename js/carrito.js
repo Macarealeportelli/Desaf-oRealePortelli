@@ -16,6 +16,7 @@ export const agregarACarrito = (productoId) => {
         let div = document.createElement('div')
         div.classList.add('productoEnCarrito')
         div.innerHTML = `
+        <img src=${producto.img} style="width: 60px; height: 60px" alt="...">
         <p>${producto.name}</p>
         <p>Precio: $ ${producto.price}</p> 
         <p id="cantidad${producto.id}">Cantidad: 1 </p>
