@@ -37,15 +37,20 @@ export const agregarACarrito = (productoId) => {
         let producto = productos.find( producto => producto.id == productoId )
         carritoCompras.push(producto)
         
-        let cantidad = 0
-        let stock = producto.quantity
+        const calcularCantidad =()=>{
+            let cantidad = 0
+            let stock = producto.quantity
+            if (producto.id) {
+                cantidad ++
+                producto.quantity = producto.quantity - 1
+                if (stock === 0){
+                    return alert("sin stock!")
+                } 
+                return console.log(cantidad, producto.quantity)
+            }
+        }
+        
 
-        // if (producto.id) {
-        //     cantidad ++
-        //     producto.quantity = stock --
-        //     return console.log(cantidad, stock)
-        // }
-        producto.cantidad = 1
         //condicional para q vea la cantidad de productos
 
         let div = document.createElement('div')
@@ -54,7 +59,7 @@ export const agregarACarrito = (productoId) => {
         <img src=${producto.img} style="width: 60px; height: 60px" alt="...">
         <p>${producto.name}</p>
         <p>Precio: $ ${producto.price}</p> 
-        <p id="cantidad${producto.id}">Cantidad: </p>
+        <p id="cantidad${producto.id}">Cantidad: ${calcularCantidad()} </p>
         <button id="eliminar${producto.id}" class="boton-eliminar" ><i class="fa-solid fa-trash-can"></i></button> `
         
         contenedorCarrito.appendChild(div)
