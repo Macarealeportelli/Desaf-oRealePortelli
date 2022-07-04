@@ -36,7 +36,15 @@ export const agregarACarrito = (productoId) => {
     const renderProductoCarrito = () => {
         let producto = productos.find( producto => producto.id == productoId )
         carritoCompras.push(producto)
-            
+        
+        let cantidad = 0
+        let stock = producto.quantity
+
+        // if (producto.id) {
+        //     cantidad ++
+        //     producto.quantity = stock --
+        //     return console.log(cantidad, stock)
+        // }
         producto.cantidad = 1
         //condicional para q vea la cantidad de productos
 
@@ -46,7 +54,7 @@ export const agregarACarrito = (productoId) => {
         <img src=${producto.img} style="width: 60px; height: 60px" alt="...">
         <p>${producto.name}</p>
         <p>Precio: $ ${producto.price}</p> 
-        <p id="cantidad${producto.id}">Cantidad: 1 </p>
+        <p id="cantidad${producto.id}">Cantidad: </p>
         <button id="eliminar${producto.id}" class="boton-eliminar" ><i class="fa-solid fa-trash-can"></i></button> `
         
         contenedorCarrito.appendChild(div)
@@ -55,23 +63,20 @@ export const agregarACarrito = (productoId) => {
     guardoCarrito()
     console.table(carritoCompras)
 
-      // calculamos precio final de productos y carrito
-    // let precioFinal = (producto) => {
-    //     return parseFloat((producto.price * IVA).toFixed(2))
-    // }
-
-    // const pFCarrito = () => {
-    //     for(let item of carritoCompras) {
-    //         precioFinal = item.precioFinal()
-    //         carritoPrecioFinal.push(precioFinal)
-    //     }
-    //     return carritoPrecioFinal
-    // }
-    // btnCalcularCarrito.addEventListener('click', () => {
-    //     pFCarrito()
-    //     let suma = carritoPrecioFinal.reduce((total, value) => total + value)
-        
-    //     return console.log("Precio Final de Cada Producto: " + carritoPrecioFinal, "Total del Carrito:" + suma)
-    // })
+      // calculamos el total del carrito
+    const pFCarrito = () => {
+        let totalCarrito = 0
+        let precioFinal = 0
+        for(let item of carritoCompras) {
+           precioFinal = item.price
+            totalCarrito += precioFinal
+        }
+        return totalCarrito
+    }
+    btnCalcularCarrito.addEventListener('click', () => {
+        let strCarrito = JSON.stringify(pFCarrito())
+        localStorage.setItem("totalCarrito", strCarrito)
+        window.location.href = "checkout.html"
+    })
 }
 

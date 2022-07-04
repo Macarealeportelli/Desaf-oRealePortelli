@@ -33,6 +33,8 @@ const recuperarDatosUser = () => {
         inputTelefono.value = datosUser.telefono
     }
     const carrito = JSON.parse(localStorage.getItem("carrito"))
+
+    document.querySelector("#totalCarrito").innerText = JSON.parse(localStorage.getItem("totalCarrito"))
     // for (let i = 0 ; i< carrito.length ; i++) {
     //     document.querySelector("#productosComprados").innerText = carrito.join(" - ")
     // }
