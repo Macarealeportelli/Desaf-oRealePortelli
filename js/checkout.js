@@ -34,7 +34,7 @@ const recuperarDatosUser = () => {
     }
     const carrito = JSON.parse(localStorage.getItem("carrito"))
     // for (let i = 0 ; i< carrito.length ; i++) {
-    //     document.querySelector("#productosComprados").innerText = carrito[i].name.join(" - ")
+    //     document.querySelector("#productosComprados").innerText = carrito.join(" - ")
     // }
 
 // para q esta parte funcione deberia recorrer el carrito y mostrar cada uno de los elementos,

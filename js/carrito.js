@@ -9,15 +9,15 @@ const guardoCarrito = () => {
     }
 }
 
-const recuperoCarrito = () => {
-    debugger
-    if (miCarrito = JSON.parse(localStorage.getItem("carrito"))){
-        miCarrito.forEach(producto => {
-            carritoCompras.push(producto)
-        })
-    }
-}
-recuperoCarrito()
+// const recuperoCarrito = () => {
+//     debugger
+//     if ( miCarrito = JSON.parse(localStorage.getItem("carrito"))){
+//         miCarrito.forEach(producto => {
+//             carritoCompras.push(producto)
+//         })
+//     }
+// }
+// recuperoCarrito()
 
 const removerDeCarrito = (producto) => {
     const productoARemover = document.getElementById(`${producto.id}`)
