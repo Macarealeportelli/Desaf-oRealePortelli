@@ -9,7 +9,15 @@ let datosDeInput = ""
 document.addEventListener("submit", (e)=> {
     e.preventDefault()
     guardarDatosUser()
-    alert(`Gracias por su compra &#128521`)
+    Swal.fire({
+        title: 'Gracias por tu compra!',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+    })
 })
 
 const guardarDatosUser = () => {

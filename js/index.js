@@ -24,7 +24,15 @@ const iniciarCompra = () =>{
     if (compra) {
         elegirProducto()
     } else {
-        alert("Gracias por tu visita, esperamos que vuelvas pronto")
+        Swal.fire({
+            title: 'Gracias por tu compra!',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+        })
     }
 }
 

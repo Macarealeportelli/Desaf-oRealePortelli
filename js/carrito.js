@@ -44,7 +44,13 @@ export const agregarACarrito = (productoId) => {
                 cantidad ++
                 producto.quantity = producto.quantity - 1
                 if (stock === 0){
-                    return alert("sin stock!")
+                    return Swal.fire({
+                                position: 'top-end',
+                                icon: 'warning',
+                                title: `Sin stock`,
+                                showConfirmButton: false,
+                                timer: 1500
+                             })
                 } 
                 return console.log(cantidad, producto.quantity)
             }

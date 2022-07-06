@@ -2,6 +2,7 @@ import { productos } from "./stock.js"
 import { agregarACarrito } from "./carrito.js"
 import { filtrarProductos, buscarProducto } from "./index.js"
 
+
 const mostrarProductos = (productos) => {
     const contenedorProdcuctos = document.getElementById('product-container')
 
@@ -24,7 +25,13 @@ const mostrarProductos = (productos) => {
         const boton = document.getElementById(`boton${producto.id}`)
         boton.addEventListener('click', () => {
             agregarACarrito(producto.id)
-            alert(`se agregó producto ${producto.name}`)
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: `Se agregó ${producto.name} al carrito`,
+                showConfirmButton: false,
+                timer: 1500
+            })
         })
     })
 }
