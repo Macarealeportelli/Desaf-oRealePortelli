@@ -1,4 +1,3 @@
-﻿# DesafioRealePortelli
 # Desafio Tienda Online
 *Este proyecto es una Tienda Online creada para el curso de JAVASCRIP de CODERHOUSE*
 
