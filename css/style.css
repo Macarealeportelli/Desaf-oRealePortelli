@@ -1,20 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Comfortaa', cursive;
 }
 li {
     list-style: none;
 }
 header{
-    height: 5rem;
+    height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
     color: #000;
+}
+.titulo {
+    margin-left: 25px;
 }
 .nav-container {
     display: flex;
@@ -34,11 +38,13 @@ header{
 } 
 .btn-carrito {
     width: 150px;
-    height: 30px;
-    background-color: #fafafa;
+    height: 40px;
+    margin-right: 25px;
+    background-color: pink;
     border-radius: 8px;
-    border: gray solid 1px;
+    color: black;
     font-weight: bold;
+    border: none;
 }
 
 .card .card-image .card-title {
@@ -52,7 +58,7 @@ img {
     margin-bottom: 10px ;
 }
 
-.card{
+.card {
     width: 300px;
     height: 450px;
     display: flex;
@@ -61,7 +67,7 @@ img {
     flex-direction: column;
     border-radius: 10px;
     margin: 20px;
-    padding: 20px;
+    padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 25px 0px;
 }
 
@@ -78,14 +84,14 @@ p {
     margin: 5px;
 }
 .btn-addToCart {
-    height: 30px;
+    height: 40px;
     background-color: green;
     color: #ffffff;
-    width: 150px;
+    width: 200px;
     border: none;
     border-radius: 8px;
     margin-top: 10px;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 /* Modal */
@@ -124,11 +130,3 @@ p {
   display: flex;
   justify-content: space-between;
 }
-
-.boton-eliminar {
-  background-color: white;
-  color: lightblue;
-  border: none;
-  font-size: 20px;
-}
-

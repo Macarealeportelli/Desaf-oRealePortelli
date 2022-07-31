@@ -18,7 +18,14 @@ document.addEventListener("submit", (e)=> {
           popup: 'animate__animated animate__fadeOutUp'
         }
     })
+    setTimeout(function(){
+        volver()
+    }, 2000)
 })
+
+const volver = () => {
+    window.location.href = '/index.html';
+}
 
 const guardarDatosUser = () => {
     // debugger
@@ -43,13 +50,14 @@ const recuperarDatosUser = () => {
     const carrito = JSON.parse(localStorage.getItem("carrito"))
 
     document.querySelector("#totalCarrito").innerText = JSON.parse(localStorage.getItem("totalCarrito"))
-    // for (let i = 0 ; i< carrito.length ; i++) {
-    //     document.querySelector("#productosComprados").innerText = carrito.join(" - ")
-    // }
 
-// para q esta parte funcione deberia recorrer el carrito y mostrar cada uno de los elementos,
-// pero como es un objeto no me sale como desglosarlo :/
-    document.querySelector("#productosComprados").innerText = carrito.join(" - ")
+    // console.log(carrito)
+    let listado = []
+    for(let item of carrito){
+        listado += item.name + " - "
+        console.log(listado)
+    }
+    document.querySelector("#productosComprados").innerText = listado
 }
 
 recuperarDatosUser()
